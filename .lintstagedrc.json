@@ -1,6 +1,5 @@
 {
   "*.ts?(x)": [
-    "pnpx eslint --fix",
     "pnpx prettier --write"
   ]
 }
