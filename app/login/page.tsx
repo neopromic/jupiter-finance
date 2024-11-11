@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "../_components/ui/button";
+import { Button } from "@/app/_components/ui/button";
 import { LogInIcon } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
@@ -9,7 +9,7 @@ const Login = async () => {
   const { userId } = await auth();
 
   if (userId) {
-    redirect("/");
+    redirect("/dashboard");
   }
 
   return (

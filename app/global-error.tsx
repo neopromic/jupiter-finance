@@ -90,7 +90,7 @@ export default function GlobalError({
                   Tentar novamente
                 </Button>
                 <Button
-                  onClick={() => (window.location.href = "/")}
+                  onClick={() => (window.location.href = "/dashboard")}
                   className="gap-2"
                 >
                   <Home className="h-4 w-4" />

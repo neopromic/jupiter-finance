@@ -11,7 +11,7 @@ const Header = ({ isEnabled = true }: { isEnabled?: boolean }) => {
   const navigation = [
     {
       label: "Dashboard",
-      href: "/",
+      href: "/dashboard",
     },
     {
       label: "Transações",
@@ -28,7 +28,7 @@ const Header = ({ isEnabled = true }: { isEnabled?: boolean }) => {
   return (
     <header className="sticky left-0 top-0 z-50 flex h-[72px] items-center justify-between border-b bg-background px-6">
       <div className="flex items-center gap-8">
-        <Link href="/">
+        <Link href="/dashboard">
           <Image src="/logo.svg" alt="logo" width={173} height={32} />
         </Link>
 
@@ -39,8 +39,8 @@ const Header = ({ isEnabled = true }: { isEnabled?: boolean }) => {
               href={item.href}
               className={`text-sm transition-colors ${
                 pathname === item.href
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "font-medium text-primary"
+                  : "text-muted-foreground hover:text-primary"
               }`}
             >
               {item.label}
