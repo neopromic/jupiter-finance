@@ -1,12 +1,54 @@
+"use client";
+
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = ({ isEnabled = true }: { isEnabled?: boolean }) => {
+  const pathname = usePathname();
+
+  const navigation = [
+    {
+      label: "Dashboard",
+      href: "/",
+    },
+    {
+      label: "Transações",
+      href: "/transactions",
+    },
+    {
+      label: "Assinaturas",
+      href: "/subscriptions",
+    },
+  ];
+
+  if (!isEnabled) return null;
+
   return (
-    <header
-      className={`flex h-[72px] items-center justify-between p-4 ${isEnabled ? "block" : "hidden"}`}
-    >
-      <Image src="/logo.svg" alt="logo" width={173} height={32} />
+    <header className="sticky left-0 top-0 z-50 flex h-[72px] items-center justify-between border-b bg-background px-6">
+      <div className="flex items-center gap-8">
+        <Link href="/">
+          <Image src="/logo.svg" alt="logo" width={173} height={32} />
+        </Link>
+
+        <nav className="flex items-center gap-4">
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`text-sm transition-colors ${
+                pathname === item.href
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
       <UserButton showName />
     </header>
   );
