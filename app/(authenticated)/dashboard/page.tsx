@@ -5,6 +5,7 @@ import TimeSelect from "./_components/time-select";
 import TransactionsPieChart from "./_components/transactions-pie-chart";
 import GetDashboard from "@/app/_data/get-dashboard";
 import ExpensesPerCategory from "./_components/expenses-per-category";
+import LastTransactions from "./_components/last-transactions";
 
 interface HomeProps {
   searchParams: {
@@ -31,7 +32,7 @@ const Home = async ({ searchParams: { month = "1" } }: HomeProps) => {
 
   return (
     <div className="space-y-6 p-6">
-      <div className="grid grid-cols-[2fr,1fr]">
+      <div className="grid grid-cols-[2fr,1fr] gap-6">
         <div className="space-y-6">
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold">Dashboard</h1>
@@ -46,6 +47,7 @@ const Home = async ({ searchParams: { month = "1" } }: HomeProps) => {
             />
           </div>
         </div>
+        <LastTransactions lastTransactions={dashboard.lastTransactions} />
       </div>
     </div>
   );

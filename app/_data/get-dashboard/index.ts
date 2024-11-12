@@ -4,8 +4,15 @@ import type {
   TotalExpensePerCategory,
   TransactionPercentagesPerType,
 } from "./types";
+import { auth } from "@clerk/nextjs/server";
 
 const getDashboard = async (month: number) => {
+  const { userId } = await auth();
+
+  if (!userId) {
+    throw new Error("User not found");
+  }
+
   const where = {
     date: {
       gte: new Date(`2024-${month}-01`),
@@ -16,6 +23,7 @@ const getDashboard = async (month: number) => {
     where: {
       type: "DEPOSIT",
       ...where,
+      userId,
     },
     _sum: {
       amount: true,
@@ -27,6 +35,7 @@ const getDashboard = async (month: number) => {
     where: {
       type: "INVESTMENT",
       ...where,
+      userId,
     },
     _sum: {
       amount: true,
@@ -38,6 +47,7 @@ const getDashboard = async (month: number) => {
     where: {
       type: "EXPENSE",
       ...where,
+      userId,
     },
     _sum: {
       amount: true,
@@ -51,7 +61,10 @@ const getDashboard = async (month: number) => {
   const transactionsTotal = Number(
     (
       await db.transactions.aggregate({
-        where,
+        where: {
+          ...where,
+          userId,
+        },
         _sum: {
           amount: true,
         },
@@ -77,6 +90,7 @@ const getDashboard = async (month: number) => {
       where: {
         ...where,
         type: TransactionType.EXPENSE,
+        userId,
       },
       _sum: {
         amount: true,
@@ -90,6 +104,16 @@ const getDashboard = async (month: number) => {
     ),
   }));
 
+  const lastTransactions = await db.transactions.findMany({
+    where: {
+      ...where,
+      userId,
+    },
+    orderBy: {
+      date: "desc",
+    },
+  });
+
   return {
     depositsTotal: Number(depositsTotal),
     investmentsTotal: Number(investmentsTotal),
@@ -97,6 +121,7 @@ const getDashboard = async (month: number) => {
     balance: Number(balance),
     typesPercentages,
     totalExpensePerCategory,
+    lastTransactions,
   };
 };
 

@@ -1,4 +1,4 @@
-import { TransactionType } from "@prisma/client";
+import { TransactionPaymentMethod, TransactionType } from "@prisma/client";
 
 export const transactionTypeOptions = [
   {
@@ -20,6 +20,14 @@ export const TRANSACTION_PAYMENT_METHOD_MAP: Record<string, string> = {
   DEBIT_CARD: "Cartão de débito",
   PIX: "PIX",
   BANK_TRANSFER: "Transferência bancária",
+};
+
+export const TRANSACTION_PAYMENT_METHOD_ICON_MAP: Record<string, string> = {
+  [TransactionPaymentMethod.CREDIT_CARD]: "/credit-card.svg",
+  [TransactionPaymentMethod.DEBIT_CARD]: "/debit-card.svg",
+  [TransactionPaymentMethod.PIX]: "/pix-icon.svg",
+  [TransactionPaymentMethod.BANK_TRANSFER]: "/bank-transfer.svg",
+  [TransactionPaymentMethod.CASH]: "/money.svg",
 };
 
 export const TRANSACTION_CATEGORY_MAP: Record<string, string> = {
