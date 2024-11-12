@@ -31,4 +31,5 @@ export const TRANSACTION_CATEGORY_MAP: Record<string, string> = {
   TRANSPORTATION: "Transporte",
   SALARY: "Salário",
   UTILITY: "Utilidade",
+  OTHER: "Outro",
 };
