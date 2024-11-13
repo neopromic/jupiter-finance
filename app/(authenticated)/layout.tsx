@@ -17,7 +17,7 @@ export default async function AuthenticatedLayout({
   return (
     <>
       <Header isEnabled />
-      {children}
+      <div className="flex flex-col overflow-hidden">{children}</div>
     </>
   );
 }
