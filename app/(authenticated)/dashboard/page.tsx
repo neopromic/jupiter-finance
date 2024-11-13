@@ -25,7 +25,7 @@ const Home = async ({ searchParams: { month = "1" } }: HomeProps) => {
   const isValidMonth = monthNumber >= 1 && monthNumber <= 12;
 
   if (!isValidMonth) {
-    redirect("/dashboard?month=1");
+    redirect(`/dashboard?month=${new Date().getMonth() + 1}`);
   }
 
   const dashboard = await GetDashboard(monthNumber);
