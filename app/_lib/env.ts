@@ -1,0 +1,7 @@
+export const env = {
+  NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY ?? "",
+  NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "",
+  DATABASE_URL: process.env.DATABASE_URL ?? "",
+  CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY ?? "",
+  CLERK_PUBLISHABLE_KEY: process.env.CLERK_PUBLISHABLE_KEY ?? "",
+};

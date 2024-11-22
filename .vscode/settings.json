@@ -5,6 +5,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "conventionalCommits.scopes": [
-    "dependencies"
+    "dependencies",
+    "security"
   ]
 }
