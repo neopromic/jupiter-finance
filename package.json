@@ -47,9 +47,70 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.1",
     "eslint": "^8.57.1",
     "eslint-config-next": "14.2.16",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "scope": "README",
+              "release": "patch"
+            },
+            {
+              "type": "refactor",
+              "release": "patch"
+            },
+            {
+              "type": "style",
+              "release": "patch"
+            }
+          ],
+          "parserOpts": {
+            "noteKeywords": [
+              "BREAKING CHANGE",
+              "BREAKING CHANGES"
+            ]
+          }
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }
