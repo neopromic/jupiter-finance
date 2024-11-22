@@ -5,6 +5,7 @@ import type {
   TransactionPercentagesPerType,
 } from "./types";
 import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 const getDashboard = async (month: number) => {
   const { userId } = await auth();
@@ -113,6 +114,9 @@ const getDashboard = async (month: number) => {
       date: "desc",
     },
   });
+
+  revalidatePath("/dashboard");
+  revalidatePath("/transactions");
 
   return {
     depositsTotal: Number(depositsTotal),

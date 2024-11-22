@@ -32,27 +32,31 @@ const Home = async ({ searchParams: { month = "1" } }: HomeProps) => {
 
   return (
     <div className="flex h-[calc(100vh-72px)] flex-col gap-6 p-6">
-      <div className="grid h-full grid-cols-[2fr,1fr] gap-6">
-        <ScrollArea className="h-full pr-6">
-          <div className="space-y-6 overflow-hidden">
-            <div className="flex justify-between">
-              <h1 className="text-2xl font-bold">Dashboard</h1>
-              <TimeSelect defaultValue={month} />
-            </div>
+      <ScrollArea className="h-full pb-12 lg:py-0">
+        <div className="grid h-full gap-6 lg:grid-cols-[2fr,1fr]">
+          <div className="pr-0 lg:pr-6">
+            <div className="space-y-6 overflow-hidden">
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:gap-0">
+                <h1 className="text-2xl font-bold">Dashboard</h1>
+                <TimeSelect defaultValue={month} />
+              </div>
 
-            <SummaryCards month={monthNumber.toString()} {...dashboard} />
+              <SummaryCards month={monthNumber.toString()} {...dashboard} />
 
-            <div className="grid grid-cols-3 grid-rows-1 gap-6 overflow-hidden">
-              <TransactionsPieChart {...dashboard} />
-              <ExpensesPerCategory
-                expensesPerCategory={dashboard.totalExpensePerCategory}
-              />
+              <div className="grid grid-cols-1 gap-6 overflow-hidden md:grid-cols-2 lg:grid-cols-3">
+                <TransactionsPieChart {...dashboard} />
+                <ExpensesPerCategory
+                  expensesPerCategory={dashboard.totalExpensePerCategory}
+                />
+              </div>
             </div>
           </div>
-        </ScrollArea>
 
-        <LastTransactions lastTransactions={dashboard.lastTransactions} />
-      </div>
+          <div className="lg:h-full">
+            <LastTransactions lastTransactions={dashboard.lastTransactions} />
+          </div>
+        </div>
+      </ScrollArea>
     </div>
   );
 };

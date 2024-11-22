@@ -9,7 +9,7 @@ const Login = async () => {
   const { userId } = await auth();
 
   if (userId) {
-    redirect("/dashboard");
+    redirect(`/dashboard?month=${new Date().getMonth() + 1}`);
   }
 
   return (
