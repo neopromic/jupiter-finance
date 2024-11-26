@@ -13,7 +13,7 @@ const Login = async () => {
   }
 
   return (
-    <section className="grid grid-cols-2">
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
       {/* "ESQUERDA" */}
       <div className="flex flex-col items-center justify-center p-8">
         <div className="mx-auto max-w-[550px] items-start">
