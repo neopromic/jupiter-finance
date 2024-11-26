@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/neopromic/finance-ai/compare/v1.0.0...v1.1.0) (2024-11-26)
+
+
+### Features
+
+* :iphone: add responsivibillity to mobile devices ([e704973](https://github.com/neopromic/finance-ai/commit/e70497354a5243037364bdaea7cbfbc6e515cb0b))
+
 # 1.0.0 (2024-11-22)
 
 
