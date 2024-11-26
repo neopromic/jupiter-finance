@@ -2,7 +2,7 @@
 
 import { db } from "@/app/_lib/prisma";
 import { auth } from "@clerk/nextjs/server";
-import {
+import type {
   TransactionCategory,
   TransactionPaymentMethod,
   TransactionType,
