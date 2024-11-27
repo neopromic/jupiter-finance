@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import { redirect } from "next/navigation";
@@ -16,6 +15,7 @@ import { useRouter } from "next/navigation";
 const UserAvatarButton = () => {
   const { user } = useUser();
   const { signOut } = useClerk();
+  const router = useRouter();
 
   const handleLogout = async () => {
     await signOut();
@@ -27,8 +27,6 @@ const UserAvatarButton = () => {
   if (!user) {
     return null;
   }
-
-  const router = useRouter();
 
   return (
     <>

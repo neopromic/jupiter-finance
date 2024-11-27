@@ -1,13 +1,12 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
-import { Transactions } from "@prisma/client";
+import type { ColumnDef } from "@tanstack/react-table";
+import type { Transactions } from "@prisma/client";
 import TransactionTypeBadge from "../_components/type-badge";
-import { Button } from "@/app/_components/ui/button";
-import { TrashIcon } from "lucide-react";
 import { TRANSACTION_PAYMENT_METHOD_MAP } from "@/app/_constants/transaction";
 import { TRANSACTION_CATEGORY_MAP } from "@/app/_constants/transaction";
 import EditTransactionButton from "../_components/edit-transaction-button";
+import DeleteTransactionButton from "../_components/delete-transaction-button";
 
 export const transactionsColumns: ColumnDef<Transactions>[] = [
   {
@@ -44,7 +43,7 @@ export const transactionsColumns: ColumnDef<Transactions>[] = [
     header: "Data",
     cell: ({ row: { original: transaction } }) => {
       return (
-        <p className="text-muted">
+        <p className="text-muted-foreground">
           {new Date(transaction.date).toLocaleDateString("pt-BR", {
             day: "2-digit",
             month: "long",
@@ -71,9 +70,7 @@ export const transactionsColumns: ColumnDef<Transactions>[] = [
       return (
         <div className="flex items-center gap-2">
           <EditTransactionButton transaction={transaction} />
-          <Button variant="ghost" size="icon">
-            <TrashIcon size={16} />
-          </Button>
+          <DeleteTransactionButton transactionId={transaction.id} />
         </div>
       );
     },

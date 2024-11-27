@@ -3,11 +3,11 @@ version: "3"
 services:
   postgres:
     image: postgres:latest
-    container_name: finance-ai-database
+    container_name: jupiter-finance-database
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: finance-ai
+      POSTGRES_DB: jupiter-finance
     ports:
       - "5432:5432"
     volumes:
