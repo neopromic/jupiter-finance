@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/neopromic/jupiter-finance/compare/v1.1.0...v1.2.0) (2024-11-27)
+
+
+### Bug Fixes
+
+* :bug: fixed a code error caused by rule of hooks ([b0e7dbc](https://github.com/neopromic/jupiter-finance/commit/b0e7dbc34de5698ab4965af0a36dc4d4daa0b253))
+
+
+### Features
+
+* :sparkles: add action to delete transactions ([9731f3c](https://github.com/neopromic/jupiter-finance/commit/9731f3c96c710a36405d422f398c6e917aee5a6e))
+* :sparkles: add button to delete transactions ([9e8ecd9](https://github.com/neopromic/jupiter-finance/commit/9e8ecd9b9cd7a003dbfd9c9c2ff8afcb075c98cc))
+
 # [1.1.0](https://github.com/neopromic/finance-ai/compare/v1.0.0...v1.1.0) (2024-11-26)
 
 
