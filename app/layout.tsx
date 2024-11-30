@@ -3,7 +3,7 @@ import { Mulish } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { PostHogProvider } from "./_lib/providers";
+import { ClientProviders } from "./_lib/providers";
 import { Suspense } from "react";
 
 const mulish = Mulish({
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <Suspense>
-        <PostHogProvider>
+        <ClientProviders>
           <ClerkProvider appearance={{ baseTheme: dark }}>
             <body
               className={`${mulish.className} dark flex h-full flex-col overflow-hidden antialiased`}
@@ -30,7 +30,7 @@ export default function RootLayout({
               {children}
             </body>
           </ClerkProvider>
-        </PostHogProvider>
+        </ClientProviders>
       </Suspense>
     </html>
   );

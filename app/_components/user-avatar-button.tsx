@@ -46,6 +46,7 @@ const UserAvatarButton = () => {
           <DropdownMenuItem>Perfil</DropdownMenuItem>
           <DropdownMenuItem>Configurações</DropdownMenuItem>
           <DropdownMenuItem
+            className="lg:hidden"
             onClick={() =>
               router.push(`/dashboard?month=${new Date().getMonth() + 1}`)
             }
@@ -55,7 +56,10 @@ const UserAvatarButton = () => {
           <DropdownMenuItem onClick={() => router.push("/subscriptions")}>
             Planos
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push("/transactions")}>
+          <DropdownMenuItem
+            className="lg:hidden"
+            onClick={() => router.push("/transactions")}
+          >
             Transações
           </DropdownMenuItem>
           <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
