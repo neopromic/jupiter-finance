@@ -27,7 +27,7 @@
       ],
       "@/styles": [
         "./app/_styles/*"
-      ]
+      ],
     }
   },
   "include": [
