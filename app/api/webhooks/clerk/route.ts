@@ -1,13 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs/server";
 
-export default async function POST(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
+export async function POST(req: Request) {
   try {
-    const payload = req.body;
+    const payload = await req.json();
 
     // Verificar o evento do webhook
     if (payload.type === "user.created") {
@@ -23,14 +19,20 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
         },
       });
 
-      return res
-        .status(200)
-        .json({ message: "User metadata updated successfully" });
+      return NextResponse.json({
+        message: "User metadata updated successfully",
+      });
     }
 
-    res.status(400).json({ error: "Unhandled event type" });
+    return NextResponse.json(
+      { error: "Unhandled event type" },
+      { status: 400 },
+    );
   } catch (error) {
     console.error("Erro ao processar webhook Clerk:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    return NextResponse.json(
+      { error: "Internal Server Error" },
+      { status: 500 },
+    );
   }
 }
