@@ -11,7 +11,15 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "Finance AI",
+  title: "Jupiter Finance",
+  description:
+    "Uma plataforma de gerenciamento de finanças pessoais e para pequenas empresas.",
+  keywords: ["finance", "controle financeiro", "gerenciamento financeiro"],
+  applicationName: "Jupiter Finance",
+  authors: {
+    name: "Wesley Souza",
+    url: "https://dev-wesleysouza.vercel.app/",
+  },
 };
 
 export default function RootLayout({
