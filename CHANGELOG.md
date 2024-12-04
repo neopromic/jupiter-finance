@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/neopromic/jupiter-finance/compare/v1.2.0...v1.2.1) (2024-12-04)
+
+
+### Bug Fixes
+
+* **api route to clerk webhooks:** :ambulance: fixed the method name ([2fef337](https://github.com/neopromic/jupiter-finance/commit/2fef33781b44190c4c1d4211a0982d305123d201))
+* **api route to clerk webhooks:** :ambulance: fixed the method name ([69ddc43](https://github.com/neopromic/jupiter-finance/commit/69ddc431cdc2f6266708d220bcfcbbf1a7280d39))
+* **api route to clerk webhooks:** :ambulance: fixed the method name ([b64db27](https://github.com/neopromic/jupiter-finance/commit/b64db27b2b5dd3ee3943c26ff3a2dc8dc5b29bc7))
+
 # [1.2.0](https://github.com/neopromic/jupiter-finance/compare/v1.1.0...v1.2.0) (2024-11-27)
 
 
