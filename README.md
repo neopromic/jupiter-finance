@@ -1,7 +1,9 @@
 # 💚 Jupiter finance, seu gerenciador de finanças inteligente.
+
 O Jupiter Finance foi desenvolvido com auxilio da full stack week, do Felipe Rocha, e sofreu algumas mudanças para torná-lo único e feito com carinho por mim, Wesley. 💚
----
+
 ## 💚 Funcionalidades
+
 ### Funcionalidades Base
 - [x] Você pode adicionar transações com base na sua data atual, transações futuras (com o date picker), e adicionar transações da datas passadas.
 - [x] Você pode deletar transações
