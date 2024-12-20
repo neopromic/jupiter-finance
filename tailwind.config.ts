@@ -57,8 +57,18 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        matrix: "matrix 1s infinite linear",
+      },
+      keyframes: {
+        matrix: {
+          "0%": { "background-position": "0% 100%, 50% 100%, 100% 100%" },
+          "100%": { "background-position": "0% 0%, 50% 0%, 100% 0%" },
+        },
+      },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 };
 export default config;

@@ -14,7 +14,7 @@ import { ScrollArea } from "../_components/ui/scroll-area";
 
 const Subscriptions = () => {
   return (
-    <>
+    <section className="h-[100vh] overflow-hidden">
       <Header />
       <ScrollArea>
         <section className="h-screen space-y-6 overflow-hidden p-6 lg:pb-0">
@@ -93,7 +93,7 @@ const Subscriptions = () => {
           </div>
         </section>
       </ScrollArea>
-    </>
+    </section>
   );
 };
 
