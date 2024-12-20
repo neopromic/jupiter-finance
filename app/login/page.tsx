@@ -19,15 +19,15 @@ const Login = async () => {
         <div className="mx-auto max-w-[550px] items-start">
           <Image
             src={"/logo.svg"}
-            alt="finance ai"
+            alt="jupiter finance"
             width={173}
             height={39}
             className=""
           />
           <h1 className="mt-8 text-4xl font-bold">Bem-vindo</h1>
           <p className="mt-2 text-base text-muted-foreground">
-            A Finance AI é uma plataforma de gestão financeira que utiliza IA
-            para monitorar suas movimentações, e oferecer insights
+            A Jupiter Finance é uma plataforma de gestão financeira que utiliza
+            IA para monitorar suas movimentações, e oferecer insights
             personalizados, facilitando o controle do seu orçamento.
           </p>
           <SignInButton>
