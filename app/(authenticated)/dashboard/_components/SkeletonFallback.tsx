@@ -7,7 +7,8 @@ const DashboardSkeleton = () => {
         <div className="pr-0 lg:pr-6">
           <div className="space-y-6 overflow-hidden">
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:gap-0">
-              <h1 className="text-2xl font-bold">Dashboard</h1>
+
+
               <Skeleton className="h-12 w-full" />
             </div>
 

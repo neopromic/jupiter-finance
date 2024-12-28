@@ -1,100 +1,85 @@
-import { Check, SparklesIcon, X } from "lucide-react";
-import Header from "../_components/Header";
-import { Badge } from "../_components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "../_components/ui/card";
-import { cn } from "../_lib/utils";
-import { typography } from "../_styles/typography";
-import { Button } from "../_components/ui/button";
-import { ScrollArea } from "../_components/ui/scroll-area";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 
-const Subscriptions = () => {
+import { redirect } from "next/navigation";
+import { Card, CardContent, CardHeader } from "../_components/ui/card";
+import { CheckIcon, XIcon } from "lucide-react";
+import AcquirePlanButton from "./_components/acquire-plan-button";
+import { Badge } from "../_components/ui/badge";
+import { getCurrentMonthTransactions } from "../_data/get-current-month-transactions";
+import Header from "../_components/Header";
+
+const SubscriptionPage = async () => {
+  const { userId } = await auth();
+  if (!userId) {
+    redirect("/login");
+  }
+  const user = await (await clerkClient()).users.getUser(userId);
+  const currentMonthTransactions = await getCurrentMonthTransactions();
+  const hasPremiumPlan = user.publicMetadata.subscriptionPlan === "premium";
   return (
-    <section className="h-[100vh] overflow-hidden">
+    <>
       <Header />
-      <ScrollArea>
-        <section className="h-screen space-y-6 overflow-hidden p-6 lg:pb-0">
-          <h1 className={cn(typography.h1)}>Assinaturas</h1>
-          <div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-center">
-            <Card className="h-96 w-80">
-              <CardHeader className="relative flex h-44 flex-col items-center justify-center gap-2 border-b">
-                <div className="space-y-4">
-                  <h2 className={cn(typography.h1, "text-2xl font-medium")}>
-                    Plano PRO
-                  </h2>
-                  <div className="flex items-center gap-2">
-                    <p className="text-2xl">R$</p>
-                    <p className={cn(typography.h1, "text-4xl")}>19</p>
-                    <p className="text-2xl text-muted-foreground">/ mês</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="flex min-h-32 flex-grow flex-col items-start justify-start gap-2 p-6">
-                <div className="flex items-center gap-2">
-                  <Check className="text-primary" />
-                  <p>Transações ilimitadas.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="text-primary" />
-                  <p>Relatórios de IA ilimitados. </p>
-                </div>
-              </CardContent>
-              <CardFooter className="mt-auto">
-                <Button className="w-full">
-                  <SparklesIcon className="text-primary-foreground" />
-                  Assinar agora!
-                </Button>
-              </CardFooter>
-            </Card>
-            <Card className="h-96 w-80">
-              <CardHeader className="relative flex h-44 flex-col items-center justify-center gap-2 border-b">
-                <div className="">
-                  <Badge className="pointer-events-none select-none bg-primary/10 text-primary hover:bg-primary/10">
-                    Atual
-                  </Badge>
-                </div>
-                <div className="space-y-4">
-                  <h2 className={cn(typography.h1, "text-2xl font-medium")}>
-                    Plano Básico
-                  </h2>
-                  <div className="flex items-center gap-2">
-                    <p className="text-2xl">R$</p>
-                    <p className={cn(typography.h1, "text-4xl")}>0</p>
-                    <p className="text-2xl text-muted-foreground">/ mês</p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="flex min-h-32 flex-1 flex-col items-start justify-start gap-2 p-6">
-                <div className="flex items-center gap-2">
-                  <Check className="text-primary" />
-                  <p>
-                    Apenas 10 transações por dia{" "}
-                    <span className="font-bold text-primary">0</span>/10
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <X className="text-muted-foreground" />
-                  <p>Relatórios de IA limitados. </p>
-                </div>
-              </CardContent>
-              <CardFooter className="">
-                <Button
-                  variant={"outline"}
-                  className="w-full border-primary text-primary"
-                >
-                  Faça o upgrade
-                </Button>
-              </CardFooter>
-            </Card>
-          </div>
-        </section>
-      </ScrollArea>
-    </section>
+      <div className="space-y-6 p-6">
+        <h1 className="text-2xl font-bold">Assinatura</h1>
+
+        <div className="flex gap-6">
+          <Card className="w-[450px]">
+            <CardHeader className="border-b border-solid py-8">
+              <h2 className="text-center text-2xl font-semibold">
+                Plano Básico
+              </h2>
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-4xl">R$</span>
+                <span className="text-6xl font-semibold">0</span>
+                <div className="text-2xl text-muted-foreground">/mês</div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-6 py-8">
+              <div className="flex items-center gap-2">
+                <CheckIcon className="text-primary" />
+                <p>
+                  Apenas 10 transações por mês ({currentMonthTransactions}/10)
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <XIcon />
+                <p>Relatórios de IA</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="w-[450px]">
+            <CardHeader className="relative border-b border-solid py-8">
+              {hasPremiumPlan && (
+                <Badge className="absolute left-4 top-12 bg-primary/10 text-primary">
+                  Ativo
+                </Badge>
+              )}
+              <h2 className="text-center text-2xl font-semibold">
+                Plano Premium
+              </h2>
+              <div className="flex items-center justify-center gap-3">
+                <span className="text-4xl">R$</span>
+                <span className="text-6xl font-semibold">19</span>
+                <div className="text-2xl text-muted-foreground">/mês</div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-6 py-8">
+              <div className="flex items-center gap-2">
+                <CheckIcon className="text-primary" />
+                <p>Transações ilimitadas</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckIcon className="text-primary" />
+                <p>Relatórios de IA</p>
+              </div>
+              <AcquirePlanButton />
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </>
   );
 };
 
-export default Subscriptions;
+export default SubscriptionPage;
