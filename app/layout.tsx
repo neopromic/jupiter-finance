@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
 import { ClientProviders } from "./_lib/providers";
 import { Suspense } from "react";
+import { LoadingState } from "./_components/ui/loading-state";
 
 const mulish = Mulish({
   subsets: ["latin-ext"],
@@ -28,6 +29,9 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function RootLayout({
   children,
 }: {
@@ -41,6 +45,7 @@ export default function RootLayout({
             <body
               className={`${mulish.className} dark flex h-full flex-col overflow-hidden antialiased`}
             >
+              <LoadingState />
               {children}
             </body>
           </ClerkProvider>
