@@ -17,9 +17,8 @@ const SubscriptionPage = async () => {
   const currentMonthTransactions = await getCurrentMonthTransactions();
   const hasPremiumPlan = user.publicMetadata.subscriptionPlan === "premium";
   return (
-    <section className="h-[100vh] overflow-hidden">
+    <>
       <Header />
-
       <div className="space-y-6 p-6">
         <h1 className="text-2xl font-bold">Assinatura</h1>
 
@@ -79,7 +78,7 @@ const SubscriptionPage = async () => {
           </Card>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 
