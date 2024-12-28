@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -23,6 +24,3 @@ export default function Loading() {
           Carregando dados...
         </p>
       )}
-    </section>
-  );
-}
