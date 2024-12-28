@@ -5,4 +5,5 @@ export const env = {
   CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY ?? "",
   CLERK_PUBLISHABLE_KEY: process.env.CLERK_PUBLISHABLE_KEY ?? "",
   CLERK_SECRET_WEBHOOK: process.env.CLERK_SECRET_WEBHOOK ?? "",
+  STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY ?? "",
 };
