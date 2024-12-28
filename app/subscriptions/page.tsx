@@ -79,7 +79,7 @@ const SubscriptionPage = async () => {
           </Card>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
