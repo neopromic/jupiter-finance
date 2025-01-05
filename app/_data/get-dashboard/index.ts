@@ -14,10 +14,11 @@ const getDashboard = async (month: number) => {
     throw new Error("User not found");
   }
 
+  const currentYear = new Date().getFullYear();
   const where = {
     date: {
-      gte: new Date(`2024-${month}-01`),
-      lt: new Date(`2024-${month}-31`),
+      gte: new Date(`${currentYear}-${month}-01`),
+      lt: new Date(`${currentYear}-${month}-31`),
     },
   };
   const deposits = await db.transactions.aggregate({
