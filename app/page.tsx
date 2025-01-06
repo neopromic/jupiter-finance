@@ -2,6 +2,7 @@ import Header from "./_components/Header";
 import HappyNewYearHeader from "./_components/HappyNewYearHeader";
 import HeroLandingPage from "./_components/Landing/Hero";
 
+
 export default function LandingPage() {
   return (
     <>
