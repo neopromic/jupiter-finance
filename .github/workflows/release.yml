@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
+  deployment_status: # Add this to check deployment status
 
 jobs:
   release:
+    # Only run when deployment to production is successful
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'Production'
     name: Release
     runs-on: ubuntu-latest
     permissions:
