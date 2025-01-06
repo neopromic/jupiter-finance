@@ -9,10 +9,13 @@ export default function LandingPage() {
       <Header />
       <main className="flex flex-1 flex-col items-center justify-center p-6 text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-          Gerencie suas finanças com IA
+          Gerencie suas finanças,
+          <br />
+          Escale sua empresa
         </h1>
         <p className="my-6 text-lg text-muted-foreground">
-          Organize suas despesas, investimentos e ganhos de forma inteligente.
+          Organize suas despesas, clientes, investimentos e ganhos de forma
+          inteligente.
         </p>
         <GetStartdButton />
       </main>
