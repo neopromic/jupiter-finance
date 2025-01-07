@@ -5,6 +5,7 @@ import { createStripeCheckout } from "../_actions/create-stripe-checkout";
 import { loadStripe } from "@stripe/stripe-js";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
+import { SparklesIcon } from "lucide-react";
 
 const AcquirePlanButton = () => {
   const { user } = useUser();
@@ -38,7 +39,8 @@ const AcquirePlanButton = () => {
       className="w-full rounded-full font-bold"
       onClick={handleAcquirePlanClick}
     >
-      Adquirir plano
+      <SparklesIcon />
+      Fazer upgrade!
     </Button>
   );
 };
