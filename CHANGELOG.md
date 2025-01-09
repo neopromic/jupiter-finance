@@ -1,3 +1,46 @@
+# [1.3.0](https://github.com/neopromic/jupiter-finance/compare/v1.2.1...v1.3.0) (2025-01-09)
+
+
+### Bug Fixes
+
+* add missing closing section tag in loading component ([516927d](https://github.com/neopromic/jupiter-finance/commit/516927d77b4e7f4a58ba6aab842ddd7954f40a07))
+* correct closing tag in SubscriptionPage component ([f07d631](https://github.com/neopromic/jupiter-finance/commit/f07d6319cd7418ab4c977db1156de00a6e59ffc1))
+* improve footer styling for better readability on landing page ([fae39f6](https://github.com/neopromic/jupiter-finance/commit/fae39f605693af7221fe5de39c8720d476eb8942))
+* improve footer styling for better readability on landing page ([a82dca1](https://github.com/neopromic/jupiter-finance/commit/a82dca10cb55fb9353a5fcfb411d34b3238d1644))
+* **user-avatar-button.tsx:** hide 'Planos' menu item on large screens for improved UI ([9389409](https://github.com/neopromic/jupiter-finance/commit/93894094e739e9f6cafa5bc8db46ec14c7bb2fff))
+* **user-avatar-button.tsx:** hide 'Planos' menu item on large screens for improved UI ([9f4c10a](https://github.com/neopromic/jupiter-finance/commit/9f4c10acf443042b009d0346d7f51294249dcef3))
+* **user-avatar-button.tsx:** remove redundant 'Perfil' menu item for cleaner dropdown ([67c08f8](https://github.com/neopromic/jupiter-finance/commit/67c08f8e4d35ec1718ed8eea427f56155a343094))
+* **user-avatar-button.tsx:** remove redundant 'Perfil' menu item for cleaner dropdown ([c1b4473](https://github.com/neopromic/jupiter-finance/commit/c1b4473e331f194113fdfa14796ac8087f5f8b49))
+
+
+### Features
+
+* **acquire-plan-button.tsx:** :sparkles: update the texts to convert more and add a icon ([92c5c7b](https://github.com/neopromic/jupiter-finance/commit/92c5c7bdb1b47c9552ea305d10d53fe0006fa31a))
+* **acquire-plan-button.tsx:** :sparkles: update the texts to convert more and add a icon ([fd466a9](https://github.com/neopromic/jupiter-finance/commit/fd466a9b1b87685cd9c68bc2002e463963e3989d))
+* add canvas-confetti and framer-motion dependencies to package.json ([24c1cef](https://github.com/neopromic/jupiter-finance/commit/24c1cefcc763245976833d6ec147f81b5b5f2241))
+* add Confetti component and ConfettiButton for interactive confetti effects ([f6c571a](https://github.com/neopromic/jupiter-finance/commit/f6c571a25d08f2f1bd33787416a75d6497c2b6e6))
+* add ConfettiEffect function for animated confetti display ([578b134](https://github.com/neopromic/jupiter-finance/commit/578b1346132b36c437eb062f210b65a6ee0dabf9))
+* add GetStartedButton component with confetti effect on click ([d8638ca](https://github.com/neopromic/jupiter-finance/commit/d8638ca564993f045e7828471cb5ed4023640e65))
+* add HappyNewYearHeader component with confetti effect and navigation ([9952ca3](https://github.com/neopromic/jupiter-finance/commit/9952ca3f30b86c51b46f61d0420ca93e2bfe92af))
+* add HeroLandingPage component for enhanced landing page experience ([7889540](https://github.com/neopromic/jupiter-finance/commit/7889540e877cc8f83fe87c6f23522cf7cd5f088d))
+* add skeleton and spinner components for loading states in the dashboard ([bc7e731](https://github.com/neopromic/jupiter-finance/commit/bc7e73105c4cef71f0ab761439ce79928081a1d9))
+* add TextAnimate component for animated text effects ([604f30d](https://github.com/neopromic/jupiter-finance/commit/604f30d8516105fc271668d980438dcfc6a64ec0))
+* **dependencies:** add nextjs-toploader and styled-components to package.json ([d470020](https://github.com/neopromic/jupiter-finance/commit/d470020f2a3db93c7e478791b7a4f365c6cfb4e5))
+* enhance release workflow to check deployment status and update semantic release preset to React ([426b887](https://github.com/neopromic/jupiter-finance/commit/426b887ed36b701a29e303c06ed558cdb8e6b238))
+* enhance release workflow to check deployment status and update semantic release preset to React ([4bd884b](https://github.com/neopromic/jupiter-finance/commit/4bd884be24066dfc1df3c375a606eab21ac5543a))
+* enhance subscription page layout and add scroll area for better user experience ([87f778c](https://github.com/neopromic/jupiter-finance/commit/87f778c22100e7ab514b74fb1f8beb981424d565))
+* enhance subscription page layout and add scroll area for better user experience ([d2b38bd](https://github.com/neopromic/jupiter-finance/commit/d2b38bdb1825ce32da3878113e89e3259fa80a76))
+* **favicon:** update favicon to new favicon from jupiter finance logo ([d1e6c1a](https://github.com/neopromic/jupiter-finance/commit/d1e6c1a8d2b45b76f641b396d0348273625e818c))
+* implement loading state with spinner and enhance loading feedback in dashboard ([f966955](https://github.com/neopromic/jupiter-finance/commit/f96695516c6461784ed827f0adb0a28436bfe950))
+* integrate Stripe for subscription management and add transaction limits ([ff976ec](https://github.com/neopromic/jupiter-finance/commit/ff976ec35649d007822f42ea4aedfbe3cf081b9b))
+* replace main content with HeroLandingPage component for improved landing experience ([145dbf8](https://github.com/neopromic/jupiter-finance/commit/145dbf87778dabd1915a326f715e467b93afc900))
+* update branding in login page and enhance subscriptions layout with section wrapper ([3c3405b](https://github.com/neopromic/jupiter-finance/commit/3c3405bcffd031099d3d51cbde8a095788556cba))
+* update date range in getDashboard function to use the current year ([6ee55f3](https://github.com/neopromic/jupiter-finance/commit/6ee55f30495e48823a507f1d6be41c922b7dcccc))
+* update landing page text for improved clarity and engagement ([f391fed](https://github.com/neopromic/jupiter-finance/commit/f391fed76d3b8096097559f3ee959f3825533b16))
+* update LandingPage with HappyNewYearHeader and GetStartedButton components ([47f6ee6](https://github.com/neopromic/jupiter-finance/commit/47f6ee65680a904ccfeb624238bb1e526aed1ab4))
+* **user-avatar-button.tsx:** add settings icon to 'Configurações' menu item for improved UI ([335b77b](https://github.com/neopromic/jupiter-finance/commit/335b77b462bf4fdfb6bf88a400398e6ce919c2eb))
+* **user-avatar-button.tsx:** add settings icon to 'Configurações' menu item for improved UI ([8bf9b02](https://github.com/neopromic/jupiter-finance/commit/8bf9b02191e486664a446b5da0d3637594d2a54b))
+
 ## [1.2.1](https://github.com/neopromic/jupiter-finance/compare/v1.2.0...v1.2.1) (2024-12-04)
 
 
