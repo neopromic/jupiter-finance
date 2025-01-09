@@ -52,7 +52,10 @@ const UserAvatarButton = () => {
           >
             Dashboard
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => router.push("/subscriptions")}>
+          <DropdownMenuItem
+            className="lg:hidden"
+            onClick={() => router.push("/subscriptions")}
+          >
             Planos
           </DropdownMenuItem>
           <DropdownMenuItem
