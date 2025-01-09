@@ -11,6 +11,7 @@ import {
 } from "./ui/dropdown-menu";
 import { useClerk, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { Settings } from "lucide-react";
 
 const UserAvatarButton = () => {
   const { user } = useUser();
@@ -43,7 +44,10 @@ const UserAvatarButton = () => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Configurações</DropdownMenuItem>
+          <DropdownMenuItem>
+            <Settings />
+            Configurações
+          </DropdownMenuItem>
           <DropdownMenuItem
             className="lg:hidden"
             onClick={() =>
