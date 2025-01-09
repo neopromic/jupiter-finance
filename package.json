@@ -86,7 +86,7 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "preset": "react",
+          "preset": "angular",
           "releaseRules": [
             {
               "type": "docs",
