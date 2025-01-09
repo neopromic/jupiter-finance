@@ -25,10 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+          cache: "pnpm" # Use cache for pnpm
+      - name: Install pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
       - name: Install dependencies
-        run: npm clean-install
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm audit signatures
+        run: pnpm install --frozen-lockfile
+      - name: Verify the integrity of dependencies
+        run: pnpm audit
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
