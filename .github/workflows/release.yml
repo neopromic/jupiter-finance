@@ -1,39 +1,39 @@
 name: Release
-on:
-  push:
-    branches:
-      - main # or main
 
-permissions:
-  contents: read # for checkout
+on:
+  workflow_run:
+    workflows: [CI]
+    types:
+      - completed
+    branches:
+      - main
 
 jobs:
   release:
-    name: Release
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    name: Create a new release
     runs-on: ubuntu-latest
+
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Setup Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: "lts/*"
-          cache: "pnpm" # Enable pnpm cache
-      - name: Install pnpm
-        run: npm install -g pnpm
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Verify the integrity of dependencies
-        run: pnpm audit
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: HUSKY=0 npm ci
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
