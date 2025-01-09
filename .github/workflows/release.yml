@@ -28,7 +28,7 @@ jobs:
       - name: "Install pnpm"
         run: "npm i pnpm@latest -g"
       - name: Install dependencies
-        run: pnpm clean-install
+        run: pnpm install
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
