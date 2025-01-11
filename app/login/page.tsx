@@ -1,7 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/app/_components/ui/button";
-import { LogInIcon } from "lucide-react";
-import { SignInButton } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -13,7 +11,7 @@ const Login = async () => {
   }
 
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+    <section className="grid h-[100vh] grid-cols-1 overflow-hidden md:grid-cols-2 lg:grid-cols-2">
       {/* "ESQUERDA" */}
       <div className="flex flex-col items-center justify-center p-8">
         <div className="mx-auto max-w-[550px] items-start">
@@ -30,22 +28,28 @@ const Login = async () => {
             IA para monitorar suas movimentações, e oferecer insights
             personalizados, facilitando o controle do seu orçamento.
           </p>
-          <SignInButton>
-            <Button className="mt-8 w-full" variant="outline">
-              <LogInIcon className="ml-2 h-4 w-4" />
-              Entrar com Google
-            </Button>
-          </SignInButton>
         </div>
       </div>
       {/* "DIREITA" */}
-      <Image
+      <div className="flex flex-col items-center justify-center">
+        <SignIn
+          routing="hash"
+          appearance={{
+            layout: {
+              shimmer: true,
+              unsafe_disableDevelopmentModeWarnings: true,
+              logoImageUrl: "/logo.svg",
+            },
+          }}
+        />
+        {/* <Image
         src="/login.png"
         alt="Login"
         width={1000}
         height={1000}
-        className="pointer-events-none max-h-[100dvh] w-full object-cover"
-      />
+        className="w-full max-h-[100dvh] pointer-events-none object-cover"
+      /> */}
+      </div>
     </section>
   );
 };
