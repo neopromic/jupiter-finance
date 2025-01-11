@@ -34,6 +34,7 @@ const Login = async () => {
       <div className="flex flex-col items-center justify-center">
         <SignIn
           routing="hash"
+          signUpUrl="/sign-up"
           appearance={{
             layout: {
               shimmer: true,
