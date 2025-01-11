@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { SignIn } from "@clerk/nextjs";
+import { SignUp } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
-const Login = async () => {
+const SignUpPage = async () => {
   const { userId } = await auth();
 
   if (userId) {
@@ -32,9 +32,8 @@ const Login = async () => {
       </div>
       {/* "DIREITA" */}
       <div className="flex flex-col items-center justify-center">
-        <SignIn
+        <SignUp
           routing="hash"
-          signUpUrl="/sign-up"
           appearance={{
             layout: {
               shimmer: true,
@@ -42,6 +41,7 @@ const Login = async () => {
               logoImageUrl: "/logo.svg",
             },
           }}
+          signInUrl="/login"
         />
         {/* <Image
         src="/login.png"
@@ -55,4 +55,4 @@ const Login = async () => {
   );
 };
 
-export default Login;
+export default SignUpPage;
